@@ -3,7 +3,7 @@ from core.models import *
 
 @admin.register(Meta)
 class MetaAdmin(admin.ModelAdmin):
-    list_display = ['id', 'descricao', 'peso']
+    list_display = ['id', 'descricao','tipo_validacao', 'peso']
 
 
 

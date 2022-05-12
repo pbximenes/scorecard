@@ -8,3 +8,6 @@ def home(request):
 
 def analistas(request):
     return render(request, 'analistas.html', locals())
+
+def metas(request):
+    return render(request, 'metas.html', locals())
