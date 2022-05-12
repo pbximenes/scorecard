@@ -32,7 +32,13 @@
     </div>
 
     <div id="main">
-        {% block 'body' %}{% endblock %}
+
+    <div class="content">
+        {% block 'conteudo-header' %}{% endblock %}
+
+        {% block 'conteudo' %}{% endblock %}
+    </div>
+
     </div>
 </div>
 

@@ -3,13 +3,14 @@
 {% load static %}
 
 
-{% block 'body' %}
+{% block 'conteudo-header' %}
     <div class="header">
         <h1>Analistas</h1>
         <h2>Lista de todos os analistas existentes na base</h2>
     </div>
+{% endblock %}
 
-    <div class="container">
+{% block 'conteudo' %}
         <table class="pure-table">
             <thead>
                 <tr>
@@ -41,5 +42,5 @@
             </tbody>
         </table>
 
-    </div>
 {% endblock %}
+
