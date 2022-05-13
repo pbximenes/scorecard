@@ -47,6 +47,7 @@ The content `<div>` is where all your content goes.
     line-height: 1.6em;
 }
 
+
 .header {
      margin: 0;
      color: #333;
@@ -72,6 +73,11 @@ The content `<div>` is where all your content goes.
     color: #888;
 }
 
+
+
+.content table {
+    width: 100%;
+}
 
 
 /*
@@ -245,4 +251,26 @@ Hides the menu at `48em`, but modify this based on your app's needs.
         position: relative;
         left: 150px;
     }
+}
+
+
+
+.column-center {
+    text-align: center;
+}
+
+.button-xsmall {
+    font-size: 70%;
+}
+
+.button-small {
+    font-size: 85%;
+}
+
+.button-large {
+    font-size: 110%;
+}
+
+.button-xlarge {
+    font-size: 125%;
 }

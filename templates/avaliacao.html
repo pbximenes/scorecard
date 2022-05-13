@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+
+{% block 'conteudo-header' %}
+    <div class="header">
+        <h1>Avaliacao</h1>
+
+    </div>
+{% endblock %}
+
+{% block 'conteudo' %}
+    <h2>
+        {{ analista.matricula }} - {{ analista.nome }}
+    </h2>
+    <div>
+        <form class="pure-form pure-form-stacked">
+            <fieldset>
+                <table class="pure-table pure-table-bordered pure-table-striped">
+                    <thead>
+                    <tr>
+                        <th>Meta</th>
+                        <th class="column-center">Peso</th>
+                        <th class="column-center">Acões</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    {% for meta in metas %}
+                        <tr>
+                            <td>{{ meta.descricao }}</td>
+                            <td class="column-center">{{ meta.peso }}</td>
+                            {% if meta.tipo_validacao == 'C' %}
+                                <td class="column-center">
+                                    <label for="stacked-remember" class="pure-checkbox">
+                                        <input type="checkbox"/>
+                                    </label>
+                                </td>
+                            {% else %}
+                                <td class="column-center">
+                                    <input type="number" placeholder="valor"/>
+                                </td>
+                            {% endif %}
+                        </tr>
+
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </fieldset>
+
+            <div class="pure-controls">
+                <a class="pure-button pure-button-primary" href="{{request.META.HTTP_REFERER}}">Voltar</a>
+                <a class="pure-button pure-button-primary" href="#">Finalizar Avaliacao</a>
+            </div>
+        </form>
+
+
+    </div>
+
+
+{% endblock %}
+

@@ -20,6 +20,7 @@ class Meta(models.Model):
 class Analista(models.Model):
     matricula = models.IntegerField()
     nome = models.CharField(max_length=200)
+    data_ultima_avaliacao = models.DateTimeField(null=True)
 
     def __str__(self) -> str:
         return self.nome
@@ -31,5 +32,6 @@ class Analista(models.Model):
 class Avaliacao(models.Model):
     analista = models.ForeignKey('Analista', on_delete=models.CASCADE)
     dados_avaliacao = JSONField()
+    resultado = models.IntegerField(default=0)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

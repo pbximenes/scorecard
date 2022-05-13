@@ -6,41 +6,44 @@
 {% block 'conteudo-header' %}
     <div class="header">
         <h1>Analistas</h1>
-        <h2>Lista de todos os analistas existentes na base</h2>
+
     </div>
 {% endblock %}
 
 {% block 'conteudo' %}
-        <table class="pure-table">
+    <h2 class="content-subhead">Lista de todos os analistas existentes na base</h2>
+    <div>
+        <table class="pure-table pure-table-bordered pure-table-striped" >
             <thead>
                 <tr>
-                    <th>#</th>
-                    <th>Make</th>
-                    <th>Model</th>
-                    <th>Year</th>
+                    <th>Matricula</th>
+                    <th>Nome</th>
+                    <th class="column-center">Última avaliacao</th>
+                    <th class="column-center">Acões</th>
                 </tr>
             </thead>
+
             <tbody>
+            {% for analista in analistas %}
                 <tr>
-                    <td>1</td>
-                    <td>Honda</td>
-                    <td>Accord</td>
-                    <td>2009</td>
+                    <td>{{ analista.matricula }}</td>
+                    <td>{{ analista.nome }}</td>
+                    <td class="column-center">{{ analista.data_ultima_avaliaca|default:"-"}}</td>
+                    <td class="column-center">
+                        <a class="button-large pure-button" href="{% url 'avaliacao' analista.id %}" title="Iniciar uma avaliacao">
+                            <i class="fa-solid fa-clipboard-list"></i>
+                            Nova Avaliacao
+                        </a>
+                        <a class="button-large pure-button" href="#" title="Excluir analista">
+                            <i class="fa-solid fa-trash-can"></i>
+                        </a>
+                    </td>
                 </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Toyota</td>
-                    <td>Camry</td>
-                    <td>2012</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Hyundai</td>
-                    <td>Elantra</td>
-                    <td>2010</td>
-                </tr>
+            {% endfor %}
             </tbody>
         </table>
+    </div>
+
 
 {% endblock %}
 
